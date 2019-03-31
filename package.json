@@ -1,6 +1,6 @@
 {
   "name": "destate-common-reducers",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Common reducers used with Destate",
   "main": "index.js",
   "keywords": [
