@@ -1,0 +1,26 @@
+{
+  "name": "destate-common-reducers",
+  "version": "0.0.1",
+  "description": "Common reducers used with Destate",
+  "main": "index.js",
+  "keywords": [
+    "state",
+    "declarative",
+    "js",
+    "react state",
+    "destate",
+    "reducers"
+  ],
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Usher Klein",
+  "license": "ISC",
+  "dependencies": {
+    "ramda": "^0.26.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
+  }
+}
