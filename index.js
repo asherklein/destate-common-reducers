@@ -45,6 +45,13 @@ const concatterProp = uncurryN(4, (type, propName) => concatter(typeEq(type), ma
 // collectOrConcatProp :: string -> string -> reducer [s]
 const collectOrConcatProp = uncurryN(4, (type, propName) => collectOrConcat(typeEq(type), mapToProp(propName))) 
 
+const justNext = (acc, next) => next
+
+// lastOf :: string -> reducer s
+const lastOf = (type) => mfReducer(justNext, false, typeEq(type), body)
+// lastOfProp :: string -> string -> reducer s
+const lastOfProp = (type, propName) => mfReducer(justNext, false, typeEq(type), mapToProp(propName))
+
 const sumProp = (type, propName) => mfReducer(add, typeEq(type), mapToProp(propName), 0)
 
 const count = (type) => mfReducer(add, typeEq(type), always(1), 0)
@@ -56,7 +63,7 @@ const vals = (vals) => mfReducer(merge, zipObj(vals, map(always(''), vals)), typ
 const TOGGLE = '@@__TOGGLE__@@'
 const toggle = mfReducer(not, false, typeEq(TOGGLE), identity)
 
-module.exports = { state, collect, concatter, collectOrConcat, collectProp, concatterProp, collectOrConcatProp, sumProp, count, vals, toggle,
+module.exports = { state, lastOf, lastOfProp, collect, concatter, collectOrConcat, collectProp, concatterProp, collectOrConcatProp, sumProp, count, vals, toggle,
     types: {
         VALS, TOGGLE
     }
