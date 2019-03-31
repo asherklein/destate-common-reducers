@@ -48,9 +48,9 @@ const collectOrConcatProp = uncurryN(4, (type, propName) => collectOrConcat(type
 const justNext = (acc, next) => next
 
 // lastOf :: string -> reducer s
-const lastOf = (type) => mfReducer(justNext, false, typeEq(type), body)
+const lastOf = uncurryN(3, (type) => mfReducer(justNext, false, typeEq(type), body))
 // lastOfProp :: string -> string -> reducer s
-const lastOfProp = (type, propName) => mfReducer(justNext, false, typeEq(type), mapToProp(propName))
+const lastOfProp = uncurryN(4, (type, propName) => mfReducer(justNext, false, typeEq(type), mapToProp(propName)))
 
 const sumProp = (type, propName) => mfReducer(add, typeEq(type), mapToProp(propName), 0)
 
